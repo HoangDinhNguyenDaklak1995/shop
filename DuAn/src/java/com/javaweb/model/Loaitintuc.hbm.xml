@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 17, 2016 5:50:56 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Loaitintuc" table="loaitintuc" catalog="db_duan01" optimistic-lock="version">
+        <id name="idLoaiTinTuc" type="java.lang.Integer">
+            <column name="IdLoaiTinTuc" />
+            <generator class="identity" />
+        </id>
+        <property name="tenLoaiTinTuc" type="string">
+            <column name="TenLoaiTinTuc" length="45" not-null="true" />
+        </property>
+        <property name="moTa" type="string">
+            <column name="MoTa" length="200" not-null="true" />
+        </property>
+        <set name="tintucs" table="tintuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdLoaiTinTuc" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Tintuc" />
+        </set>
+    </class>
+</hibernate-mapping>

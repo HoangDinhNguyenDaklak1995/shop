@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 17, 2016 5:50:56 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Tintuc" table="tintuc" catalog="db_duan01" optimistic-lock="version">
+        <id name="idTinTuc" type="java.lang.Integer">
+            <column name="IdTinTuc" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="loaitintuc" class="com.javaweb.model.Loaitintuc" fetch="select">
+            <column name="IdLoaiTinTuc" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="com.javaweb.model.Users" fetch="select">
+            <column name="IdUser" />
+        </many-to-one>
+        <property name="tieuDe" type="string">
+            <column name="TieuDe" length="65535" not-null="true" />
+        </property>
+        <property name="ngayDang" type="timestamp">
+            <column name="NgayDang" length="19" not-null="true" />
+        </property>
+        <property name="noiDung" type="string">
+            <column name="NoiDung" length="65535" not-null="true" />
+        </property>
+        <property name="tomTatTin" type="string">
+            <column name="TomTatTin" length="65535" not-null="true" />
+        </property>
+        <property name="linkTin" type="binary">
+            <column name="LinkTin" />
+        </property>
+        <property name="image" type="string">
+            <column name="Image" length="250" />
+        </property>
+        <set name="binhluantintucs" table="binhluantintuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTinTuc" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Binhluantintuc" />
+        </set>
+    </class>
+</hibernate-mapping>

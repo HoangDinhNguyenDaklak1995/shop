@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 17, 2016 5:50:56 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Chitietdonhangla" table="chitietdonhangla" catalog="db_duan01" optimistic-lock="version">
+        <id name="idchitietdonhangla" type="java.lang.Integer">
+            <column name="idchitietdonhangla" />
+            <generator class="identity" />
+        </id>
+        <property name="iddonhangla" type="int">
+            <column name="iddonhangla" not-null="true" />
+        </property>
+        <property name="idsanpham" type="int">
+            <column name="idsanpham" not-null="true" />
+        </property>
+        <property name="soluong" type="int">
+            <column name="soluong" not-null="true" />
+        </property>
+        <property name="thanhtien" type="double">
+            <column name="thanhtien" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="ghichu" type="java.lang.Integer">
+            <column name="ghichu" />
+        </property>
+    </class>
+</hibernate-mapping>

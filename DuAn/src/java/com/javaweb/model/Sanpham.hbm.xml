@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 17, 2016 5:50:56 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Sanpham" table="sanpham" catalog="db_duan01" optimistic-lock="version">
+        <id name="idSanPham" type="java.lang.Integer">
+            <column name="IdSanPham" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="loaisanpham" class="com.javaweb.model.Loaisanpham" fetch="select">
+            <column name="IdLoaiSanPham" not-null="true" />
+        </many-to-one>
+        <property name="tenSanPham" type="string">
+            <column name="TenSanPham" length="100" not-null="true" />
+        </property>
+        <property name="gia" type="double">
+            <column name="Gia" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="moTa" type="string">
+            <column name="MoTa" length="200" />
+        </property>
+        <property name="giaKm" type="java.lang.Double">
+            <column name="GiaKM" precision="22" scale="0" />
+        </property>
+        <property name="soLuong" type="java.lang.Integer">
+            <column name="SoLuong" />
+        </property>
+        <property name="linkSp" type="binary">
+            <column name="LinkSP" />
+        </property>
+        <property name="image" type="string">
+            <column name="Image" length="250" />
+        </property>
+        <set name="binhluansanphams" table="binhluansanpham" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdSanPham" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Binhluansanpham" />
+        </set>
+        <set name="chitietdonhangs" table="chitietdonhang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdSanPham" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Chitietdonhang" />
+        </set>
+    </class>
+</hibernate-mapping>

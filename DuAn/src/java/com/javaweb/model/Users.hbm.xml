@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 17, 2016 5:50:56 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Users" table="users" catalog="db_duan01" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Integer">
+            <column name="IdUser" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="passWord" type="string">
+            <column name="PassWord" length="45" not-null="true" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="FullName" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="gioiTinh" type="string">
+            <column name="GioiTinh" length="4" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="250" not-null="true" />
+        </property>
+        <property name="sdt" type="string">
+            <column name="SDT" length="45" not-null="true" />
+        </property>
+        <property name="idQuyen" type="java.lang.Integer">
+            <column name="IdQuyen" />
+        </property>
+        <property name="avatar" type="binary">
+            <column name="Avatar" />
+        </property>
+        <set name="binhluantintucs" table="binhluantintuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdUser" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Binhluantintuc" />
+        </set>
+        <set name="binhluansanphams" table="binhluansanpham" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdUser" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Binhluansanpham" />
+        </set>
+        <set name="tintucs" table="tintuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdUser" />
+            </key>
+            <one-to-many class="com.javaweb.model.Tintuc" />
+        </set>
+        <set name="donhangs" table="donhang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdUser" not-null="true" />
+            </key>
+            <one-to-many class="com.javaweb.model.Donhang" />
+        </set>
+    </class>
+</hibernate-mapping>

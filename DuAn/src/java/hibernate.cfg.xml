@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_duan01?characterEncoding=UTF-8</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="com/javaweb/model/Tintuc.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Donhang.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Loaitintuc.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Chitietdonhang.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Donhangla.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Chitietdonhangla.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Binhluantintuc.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Sanpham.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Users.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Binhluansanpham.hbm.xml"/>
+    <mapping resource="com/javaweb/model/Loaisanpham.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

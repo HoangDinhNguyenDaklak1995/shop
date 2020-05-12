@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 17, 2016 5:50:56 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Donhangla" table="donhangla" catalog="db_duan01" optimistic-lock="version">
+        <id name="iddonhangla" type="java.lang.Integer">
+            <column name="iddonhangla" />
+            <generator class="identity" />
+        </id>
+        <property name="hoTen" type="string">
+            <column name="HoTen" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" not-null="true" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="250" not-null="true" />
+        </property>
+        <property name="dienThoai" type="string">
+            <column name="DienThoai" length="20" not-null="true" />
+        </property>
+        <property name="ngayTao" type="timestamp">
+            <column name="NgayTao" length="19" not-null="true" />
+        </property>
+        <property name="tongTien" type="double">
+            <column name="TongTien" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="ghiChu" type="java.lang.Integer">
+            <column name="GhiChu" />
+        </property>
+    </class>
+</hibernate-mapping>
